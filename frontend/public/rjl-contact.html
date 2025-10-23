@@ -74,7 +74,7 @@
                 <div class="contact-info-wrapper">
                     <div class="glass-card info-card slide-up" style="animation-delay: 0.1s">
                         <h3 class="card-title">Visit Us</h3>
-                        <p class="card-text">RJL Group<br>Jalan Batik Heritage No. 123<br>Yogyakarta, Indonesia 55000</p>
+                        <p class="card-text">RJL Group<br>Jalan Teratai No.14,Sawahan,Pojok,Kecamatan Garum<br>Kabupaten Blitar, Jawa Timur Indonesia Kode Pos 66182</p>
                     </div>
                     <div class="glass-card info-card slide-up" style="animation-delay: 0.2s">
                         <h3 class="card-title">Contact Information</h3>
@@ -94,24 +94,52 @@
     </section>
 
     <!-- Map Section -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="glass-card map-card">
-                <h2 class="section-title text-center">Find Us</h2>
-                <div class="map-wrapper">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0547789174544!2d110.36493631477748!3d-7.782699194394344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59f1fb2f2b45%3A0x20986e2fe9c79cdd!2sYogyakarta%2C%20Indonesia!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section-padding">
+  <div class="container">
+    <div class="glass-card map-card">
+      <h2 class="section-title text-center">Location</h2>
+      <div class="map-wrapper">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.184975157269!2d112.19438517412546!3d-8.082609580804949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78ecf14e042037%3A0x75295dc342cfb26f!2sWarkop%20RJL%20(Cafe%20%26%20Craft)!5e0!3m2!1sid!2sid!4v1761211816843!5m2!1sid!2sid" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-card {
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .map-wrapper {
+    position: relative;
+    width: 100%;       /* Biar penuh dalam container */
+    height: 400px;     /* Bisa kamu ubah ke 500px atau lebih */
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .map-wrapper {
+      height: 300px;   /* agar lebih pas di layar HP */
+    }
+  }
+</style>
+
 
     <!-- Footer -->
     <footer class="footer-glass">
