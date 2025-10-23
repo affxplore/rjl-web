@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - RJL Group</title>
+  <link rel="stylesheet" href="./rjl-assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Tambahan style untuk tombol filter */
+    .gallery-filter {
+      text-align: center;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .filter-btn.active {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      transform: scale(1.05);
+    }
+
+    /* Animasi transisi gallery */
+    .masonry-item {
+      transition: all 0.3s ease;
+    }
+
+    .masonry-item.hidden {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <div class="page-background" style="background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1920');"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar-glass">
+    <div class="nav-container">
+      <div class="nav-logo">RJL Group</div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="rjl-index.html" class="nav-link">Home</a></li>
+        <li><a href="rjl-cafe.html" class="nav-link">Café</a></li>
+        <li><a href="rjl-batik.html" class="nav-link">Batik</a></li>
+        <li><a href="rjl-gallery.html" class="nav-link active">Gallery</a></li>
+        <li><a href="rjl-about.html" class="nav-link">About</a></li>
+        <li><a href="rjl-contact.html" class="nav-link">Contact</a></li>
+        <li><a href="rjl-registration.html" class="nav-link">Registration</a></li>
+        <li><a href="rjl-developer.html" class="nav-link">Developer</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="glass-card hero-card fade-in">
+        <h1 class="page-title">Our Gallery</h1>
+        <p class="page-subtitle">A visual journey through our café and batik heritage</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="gallery-filter">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="cafe">Café</button>
+    <button class="filter-btn" data-filter="batik">Batik</button>
+  </div>
+
+  <!-- Gallery -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="masonry-gallery">
+        <!-- Café -->
+        <div class="masonry-item" data-category="cafe">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600');">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">RJL Café Interior</span>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item" data-category="cafe">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600');">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">Specialty Coffee</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Batik -->
+        <div class="masonry-item" data-category="batik">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=600');">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">Traditional Batik Patterns</span>
+            </div>
+          </div>
+        </div>
+        <div class="masonry-item" data-category="batik">
+          <div class="gallery-image" style="background-image: url('https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600');">
+            <div class="gallery-overlay">
+              <span class="gallery-caption">Artisan at Work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- More items (bisa lanjutkan sesuai punyamu) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-glass">
+    <div class="footer-content">
+      <p class="footer-text">&copy; 2024 RJL Group. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // Filter gallery items
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.masonry-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // ganti status tombol aktif
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.category === filter) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="./rjl-assets/js/script.js"></script>
+</body>
+</html>
